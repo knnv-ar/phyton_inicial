@@ -393,17 +393,89 @@ print("Tu edad es " + edad)
 Las listas son una estructura de datos esencial en python.
 
 pokemones = ["Pikachu", "Charmander", "Squirtle"]
+print("Mylau" in pokemones) ## False
 
-Las listas pueden contener distintos tipos de datos.
-
+Las listas pueden contener distintos tipos de datos:
 cosas = ["Darth Vader", 4, 2.1532, True]
 
+Podemos usar el método de índice para acceder a los elementos de la lista:
 print(4 in cosas) ## True
 print(cosas[0]) ## "Darth Vader"
 
 cosas[2] = 8
 print(cosas) ## "Darth Vader", 8, 2.1532, True
 print(cosas[-2]) ## 2.1532
+
+print(cosas[1:2]) ## 8, 2.1532
+print(cosas[2:]) ## 2.1532, True
+print(cosas[:2]) ## "Darth Vader", 8, 2.1532
+print(len(cosas)) ## 4
+
+Agregamos elementos a la lista con .append(), siempre al final de la lista:
+cosas.append("Copa del mundo")
+
+También agregamos elementos a la lista con .extend(), siempre al final
+de la lista pero podemos incorporarlo como lista:
+cosas.extend(["Copa del mundo 2022"])
+cosas.extend(["Copa del mundo 2022", "Copa Finalissima 2022", "Copa América 2021", 3])
+
+Otra forma de agregar elementos a una lista es con el operador de adición:
+cosas += ["Copa del mundo 2022", "Copa Finalissima 2022", "Copa América 2021", 3]
+
+Es importante no olvidar de usar los corchetes ya que si se lo hace va a
+incorporar cada caracter como un elemento nuevo en la lista:
+cosas += "Copa del mundo 2022" ## No es un método recomendado
+
+Ahora, es posible remover elementos con el método .remove():
+cosas.remove("Darth Vader")
+print(cosas) ## 8, 2.1532, True
+
+Otro método muy usado en las listas es .pop(), el cual se encarga
+de remover y regresar el último elemento:
+print(cosas.pop()) ## True
+print(cosas) ## 8, 2.1532
+
+Bien, ahora para insertar un elemento en algún lugar
+de la lista usamos .insert():
+lista_colores = ["rojo", "verde", "azul"]
+lista_colores.insert(1, "amarillo")
+print(lista_colores) ## "rojo", "amarillo", "verde", "azul"
+
+Si queremos insertar varios elementos en algún lugar
+de la lista usamos el caracter ":":
+lista_colores = ["rojo", "verde", "azul"]
+lista_colores[1:1] = ["naranja", "amarillo"]
+print(lista_colores) ## "rojo", "naranja", "amarillo", "verde", "azul"
+
+Para la ordenación de listas usamos .sort().
+colores = ["rojo", "naranja", "amarillo", "verde", "azul"]
+colores.sort()
+print(colores) ## "amarillo", "azul", "naranja", "rojo", "verde"
+
+Las mayúsculas tienen un ordende nivel prevalecente a las minúsculas,
+por lo tanto si las queremos ordenar en el mismo nivel tenemos que usar:
+colores = ["rojo", "naranja", "amarillo", "verde", "Azul"]
+print(colores) ## "Azul", "amarillo", "naranja", "rojo", "verde"
+colores.sort(key=str.lower)
+print(colores) ## "amarillo", "Azul", "naranja", "rojo", "verde"
+
+La ordenación de elementos mediante .sort() modifica el contenido origical de la lista.
+Para evitar esto podemos copiar la lista en otra lista:
+colores = ["rojo", "naranja", "amarillo", "verde", "Azul"]
+colores_copia = colores[:]
+colores_copia.sort(key=str.lower)
+print(colores) ## "rojo", "naranja", "amarillo", "verde", "Azul"
+print(colores_copia) ## "amarillo", "Azul", "naranja", "rojo", "verde"
+
+Por último, para ordenar los contenidos de un lista sin modificar la lista original:
+colores = ["rojo", "naranja", "amarillo", "verde", "Azul"]
+print(sorted(colores, key=str.lower)) ## "amarillo", "Azul", "naranja", "rojo", "verde"
+print(colores) ## "rojo", "naranja", "amarillo", "verde", "Azul"
+
+colores_copia.sort(key=str.lower)
+print(colores_copia) ## "amarillo", "Azul", "naranja", "rojo", "verde"
+
+
 """
 
 # Creating a tuple
