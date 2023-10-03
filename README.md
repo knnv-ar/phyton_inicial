@@ -27,3 +27,17 @@ Python es un lenguage multiparadigma:
 2. helloWorld.py
 3. emoji_demo.py
 4. circle.py
+
+---
+
+Los objetos en Python tienen: identidad, tipo y valor:
+
+a = 5
+
+donde,
+
+tipo= int
+
+valor= 5
+
+id: 4476561536 
