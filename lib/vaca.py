@@ -1,0 +1,2 @@
+def muge():
+  return "muuuuuuuuuu"
